@@ -1,37 +1,4 @@
-
 body {
-   font-family: Verdana, Helvetica, sans-serif;
-   background-color: #b3c2bf;
-}
-
-h1 {
-	text-align: center;
-	color: seagreen;
-}
-
-a:link {
-    color: dimgray;
-}
-
-a:visited {
-    color: dimgray;
-}
-
-p {
-	color: #3b3a36;
-}
-
-img {
-	display: block;
-    margin: auto;
-    float: right;
-    padding-right: 13.75cm;
-}
-
-.center {
-	text-align: center;
-}
-
-.movedown {
-	padding-top: 4cm;
+	font-family: Verdana, Helvetica, sans-serif;
+	background-color: #FFFFFF;
 }
