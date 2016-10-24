@@ -1,8 +1,20 @@
 body {
 	font-family: Verdana, Helvetica, sans-serif;
-	background-color: #FFFFFF;
+	background-color: #ECF1EF;
 }
 
 .placard {
 	font-size: 100px;
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.place {
+	font-size: 80px;
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.text {
+	font-size: 30px;
 }

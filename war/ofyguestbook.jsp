@@ -34,14 +34,21 @@
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 	%>
+	<div class="row">
+        <div class="col-xs-12 text-center">
+            <img src="/images/CHI'LANTRO_logo.jpg" alt="Logo">
+        </div>
+	</div>
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h1>Welcome to Chilantro!</h1>
+            <h1>Welcome to Chi'lantro!</h1>
         </div>
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <h1>Your placard number is</h1>
+        	<div class="text">
+            	<p>Your placard number is</p>
+            </div>
         </div>
 	</div>
 	<div class="row">
@@ -53,17 +60,29 @@
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <h1>your position in line is</h1>
+        	<div class="text">
+            	<p>Your position in line is</p>
+            </div>
         </div>
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <h1>14</h1>
+        	<div class="place">
+            	<p>14</p>
+            </div>
         </div>
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <h1>estimated wait time: 10 minutes</h1>
+        	<div class="text">
+            	<p>Estimated wait time: 10 minutes</p>
+            </div>
+        </div>
+	</div>
+	<div class="row">
+        <div class="col-xs-12 text-center">
+        	<input type="submit" value="Refresh">
+        	<input type="submit" value="Cancel">
         </div>
 	</div>
 	<div class="row">
