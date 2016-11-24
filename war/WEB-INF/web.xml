@@ -5,39 +5,31 @@
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<servlet>
-		<servlet-name>sign</servlet-name>
-		<servlet-class>guestbook.SignGuestbookServlet</servlet-class>
+		<servlet-name>landing</servlet-name>
+		<servlet-class>noQ.CustomerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>sign</servlet-name>
-		<url-pattern>/sign</url-pattern>
+		<servlet-name>landing</servlet-name>
+		<url-pattern>/landing</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>ofysign</servlet-name>
-		<servlet-class>guestbook.OfySignGuestbookServlet</servlet-class>
+		<servlet-name>param</servlet-name>
+		<servlet-class>noQ.ParameterServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ofysign</servlet-name>
-		<url-pattern>/ofysign</url-pattern>
+		<servlet-name>param</servlet-name>
+		<url-pattern>/param</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>ofysub</servlet-name>
-		<servlet-class>guestbook.SubscriberServlet</servlet-class>
+		<servlet-name>refresh</servlet-name>
+		<servlet-class>noQ.RefreshServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ofysub</servlet-name>
-		<url-pattern>/ofysub</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>ofyemail</servlet-name>
-		<servlet-class>guestbook.EmailServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ofyemail</servlet-name>
-		<url-pattern>/ofyemail</url-pattern>
+		<servlet-name>refresh</servlet-name>
+		<url-pattern>/refresh</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>ofyguestbook.jsp</welcome-file>
+		<welcome-file>noQLanding.jsp</welcome-file>
 	</welcome-file-list>
 	<filter>
 		<filter-name>ObjectifyFilter</filter-name>

@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.Collections"%>
 <%@ page import="java.util.List"%>
-<%@ page import="guestbook.Greeting" %>
-<%@ page import ="guestbook.Subscriber" %>
-<%@ page import ="guestbook.Log" %>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
@@ -25,15 +22,6 @@
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body class="container">
-  <%
-		String guestbookName = request.getParameter("guestbookName");
-		if (guestbookName == null) {
-			guestbookName = "default";
-		}
-		pageContext.setAttribute("guestbookName", guestbookName);
-		UserService userService = UserServiceFactory.getUserService();
-		User user = userService.getCurrentUser();
-	%>
 	<div class="row">
         <div class="col-xs-12 text-center">
             <img src="/images/CHI'LANTRO_logo.jpg" alt="Logo">

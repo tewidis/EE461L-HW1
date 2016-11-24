@@ -1,4 +1,4 @@
-package guestbook;
+package noQ;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -10,7 +10,7 @@ import javax.servlet.http.*;
 import com.googlecode.objectify.ObjectifyService;
 
 @SuppressWarnings("serial")
-public class loggerServlet extends HttpServlet {
+public class CustomerServlet extends HttpServlet {
 	static {
 
         ObjectifyService.register(Customer.class);
@@ -21,7 +21,7 @@ public class loggerServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 
-        Customer cus=new Customer(customerCount);
+        Customer cus=new Customer();
 		customerCount++;
         ofy().save().entity(cus).now();
         
