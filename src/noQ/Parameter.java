@@ -8,8 +8,10 @@ import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 
+@Entity
 public class Parameter {
-	
+	@Id
+	long id;
 	long avgWaitTime;		//wait time for a line
 	long maxLineLength;		//maximum number of customers before it resets
 	long notifFreq;			//how often to remind customers

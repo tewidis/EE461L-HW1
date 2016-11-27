@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.Collections"%>
 <%@ page import="java.util.List"%>
+<%@ page import ="noQ.CustomerCount" %>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
@@ -42,7 +43,14 @@
 	<div class="row">
         <div class="col-xs-12 text-center">
 	        <div class="placard">
-	            <p>B3</p>
+            <%
+            ObjectifyService.register(CustomerCount.class);
+            List<CustomerCount> customers = ObjectifyService.ofy().load().type(CustomerCount.class).list();
+            pageContext.setAttribute("customer_number", customers.get(0).count);
+
+
+            %>
+	            <p>B${fn:escapeXml(customer_number)}</p>
 	        </div>
         </div>
 	</div>
