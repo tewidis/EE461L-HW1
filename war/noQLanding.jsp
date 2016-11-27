@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.Collections"%>
 <%@ page import="java.util.List"%>
-<%@ page import ="noQ.CustomerCount" %>
+<%@ page import ="noQ.Customer" %>
+<%@ page import ="noQ.Parameter" %>
 <%@ page import="com.google.appengine.api.users.User"%>
 <%@ page import="com.google.appengine.api.users.UserService"%>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory"%>
@@ -25,7 +26,7 @@
   <body class="container">
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <img src="/images/CHI'LANTRO_logo.jpg" alt="Logo">
+            <img src="https://s3-media4.fl.yelpcdn.com/bphoto/haq5ytA_xtpj9m-sVHzjyA/ls.jpg" alt="Logo">
         </div>
 	</div>
     <div class="row">
@@ -44,13 +45,14 @@
         <div class="col-xs-12 text-center">
 	        <div class="placard">
             <%
-            ObjectifyService.register(CustomerCount.class);
-            List<CustomerCount> customers = ObjectifyService.ofy().load().type(CustomerCount.class).list();
-            pageContext.setAttribute("customer_number", customers.get(0).count);
-
-
+            ObjectifyService.register(Customer.class);
+            ObjectifyService.register(Parameter.class);
+            pageContext.setAttribute("cid", request.getParameter("cID"));
+            Integer position = (Integer.parseInt(request.getParameter("cID")) - Customer.served);
+            pageContext.setAttribute("position", position);
+            pageContext.setAttribute("waitTime", (position*Parameter.avgWaitTime));
             %>
-	            <p>B${fn:escapeXml(customer_number)}</p>
+	            <p>-${fn:escapeXml(cid)}-</p>
 	        </div>
         </div>
 	</div>
@@ -64,14 +66,14 @@
 	<div class="row">
         <div class="col-xs-12 text-center">
         	<div class="place">
-            	<p>14</p>
+            	<p>${fn:escapeXml(position)}</p>
             </div>
         </div>
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
         	<div class="text">
-            	<p>Estimated wait time: 10 minutes</p>
+            	<p>Estimated wait time: ${fn:escapeXml(waitTime)} minutes</p>
             </div>
         </div>
 	</div>

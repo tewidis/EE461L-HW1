@@ -15,20 +15,18 @@ public class CustomerServlet extends HttpServlet {
 	static {
 
         ObjectifyService.register(Customer.class);
-        ObjectifyService.register(CustomerCount.class);
-        ofy().save().entity(new CustomerCount()).now();
 
     }
 	
-	static Integer customerCount=0;
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		
-        List<CustomerCount> cc = ObjectifyService.ofy().load().type(CustomerCount.class).list();
-        ofy().save().entity(new Customer()).now();
-        cc.get(0).count = cc.get(0).count + 1;
+        /*List<CustomerCount> cc = ObjectifyService.ofy().load().type(CustomerCount.class).list();
+        CustomerCount cCount = cc.get(0);
+        Customer newC = new Customer();
+        ofy().save().entity(newC).now();
         ofy().save().entity(cc.get(0)).now();
-        resp.sendRedirect("/noQLanding.jsp");
-
+        */
+		Customer.totalCustomers += 1;
+        resp.sendRedirect("/noQLanding.jsp?cID=" + Customer.totalCustomers.toString());
 	}
 }
