@@ -83,8 +83,10 @@
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
-        	<input type="submit" value="Refresh">
-        	<input type="submit" value="Cancel">
+        	<input type="button" value="Refresh" onClick="window.location.reload()">
+        	<form action="/dismiss" >
+        	   <input type="submit" value="Cancel">
+        	</form>
         </div>
 	</div>
 	<div class="row">
