@@ -47,8 +47,12 @@
             <%
             ObjectifyService.register(Customer.class);
             ObjectifyService.register(Parameter.class);
-            pageContext.setAttribute("cid", request.getParameter("cID"));
-            Integer position = (Integer.parseInt(request.getParameter("cID")) - Customer.served);
+            String id = request.getParameter("cID");
+            if(request.getParameter("cID")==null){
+                id = "0";
+            }
+            pageContext.setAttribute("cid", id);
+            Integer position = (Integer.parseInt(id) - Customer.served);
             pageContext.setAttribute("position", position);
             pageContext.setAttribute("waitTime", (position*Parameter.avgWaitTime));
             %>
