@@ -26,12 +26,12 @@
   <body class="container">
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <img src="https://s3-media4.fl.yelpcdn.com/bphoto/haq5ytA_xtpj9m-sVHzjyA/ls.jpg" alt="Logo">
+            <img src="http://i.imgur.com/bjriw30.jpg" alt="Logo">
         </div>
 	</div>
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h1>Welcome to Chi'lantro!</h1>
+            <h1>Welcome to NoQ!</h1>
         </div>
 	</div>
 	<div class="row">
