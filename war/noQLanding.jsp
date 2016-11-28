@@ -26,7 +26,7 @@
   <body class="container">
 	<div class="row">
         <div class="col-xs-12 text-center">
-            <img src="http://i.imgur.com/bjriw30.jpg" alt="Logo">
+            <img src="http://i.imgur.com/vsfyUpj.png" alt="Logo">
         </div>
 	</div>
     <div class="row">
