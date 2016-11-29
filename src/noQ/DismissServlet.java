@@ -22,6 +22,6 @@ public class DismissServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		Customer.served += 1;
-		resp.sendRedirect("/host.jsp");
+		resp.sendRedirect("/host.jsp?avgWaitTime="+ Parameter.avgWaitTime);
 	}
 }

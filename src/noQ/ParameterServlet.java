@@ -14,19 +14,18 @@ import java.util.Date;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 public class ParameterServlet extends HttpServlet {
 	static {
 		ObjectifyService.register(Parameter.class);
 	}
 
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		
-	}
+	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		int avgWaitTime =Integer.parseInt(req.getParameter("avgWaitTime"));
+		Integer avgWaitTime =Integer.parseInt(req.getParameter("avgWaitTime"));
 		Parameter.setTime(avgWaitTime);
-		resp.sendRedirect("/host.jsp?avgWaitTime="+ avgWaitTime);
+		resp.sendRedirect("/host.jsp?avgWaitTime=" + avgWaitTime.toString());
 	}
 }

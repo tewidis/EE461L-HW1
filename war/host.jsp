@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <p style="display:inline">Average Time (mins): </p>
-            <form action="/param"  style="display:inline" >
+            <form action="param" style="display:inline">
                 <input type="text" name="avgWaitTime" value="${fn:escapeXml(avgWaitTime)}" maxlength="3" size="3"> 
                 <input type="submit" value="Set">
             </form>
