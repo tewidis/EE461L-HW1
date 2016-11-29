@@ -9,11 +9,10 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 public class ParameterServlet extends HttpServlet {
@@ -28,4 +27,23 @@ public class ParameterServlet extends HttpServlet {
 		Parameter.setTime(avgWaitTime);
 		resp.sendRedirect("/host.jsp?avgWaitTime=" + avgWaitTime.toString());
 	}
+	public void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException{
+
+        PrintWriter writer =  resp.getWriter();
+        try{
+           //Integer cid=(Customer.totalCustomers);
+    	   Integer cid=Integer.parseInt(req.getParameter("orderId"));
+           Integer avgWT=(cid-Customer.served)*Parameter.avgWaitTime;
+           
+           String data = ""+avgWT;
+           writer.write(data);
+           writer.close();
+           }
+       catch(Exception ex)
+      {
+      ex.getStackTrace();
+      }
+	}
+	
 }

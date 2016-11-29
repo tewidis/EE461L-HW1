@@ -74,14 +74,14 @@
 	<div class="row">
         <div class="col-xs-12 text-center">
         	<div class="place">
-            	<p>${fn:escapeXml(position)}</p>
+            	<p id="pos"> </p>
             </div>
         </div>
 	</div>
 	<div class="row">
         <div class="col-xs-12 text-center">
         	<div class="text">
-            	<p>Estimated wait time: ${fn:escapeXml(waitTime)} minutes</p>
+            	<p style="display:inline">Estimated wait time: <p style="display:inline" id="avgTime"> </p><p style="display:inline"> minutes</p>
             </div>
         </div>
 	</div>
@@ -94,7 +94,30 @@
         </div>
 	</div>
 	<div class="row">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+        var myVar = setInterval(function(){ myTimer() }, 250);
+        
+        function myTimer() {
+            
+            var cid=<%= pageContext.getAttribute("cid") %>
+             $.post("position", { orderId : cid},
+                function(position) {
+                document.getElementById("pos").firstChild.nodeValue = position;
+                //alert(data);
+             });
+            var avg=<%= pageContext.getAttribute("waitTime") %>
+            $.post("param", { orderId : cid},
+                function(avgTime) {
+                document.getElementById("avgTime").firstChild.nodeValue = avgTime;
+                //alert(avgTime);
+             });
+
+        }
+    </script>
+	
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
