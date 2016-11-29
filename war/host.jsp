@@ -51,7 +51,7 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <div class="text">
-                <p>Current Queue: -${fn:escapeXml(customerServed)}-</p>
+                <p>Customers served: -${fn:escapeXml(customerServed)}-</p>
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="col-xs-12 text-center">
             <input type="button" value="Refresh" onClick="window.location.reload()">
             <form action="/dismiss" style="display:inline">
-                <input type="submit" value="Dismiss">
+                <input type="submit" value="Next">
             </form>   
             <form action="/reset" style="display:inline">
                <input type="submit" value="Reset">
