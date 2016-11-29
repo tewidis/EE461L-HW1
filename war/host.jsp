@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <input type="button" value="Refresh" onClick="window.location.reload()">
-            <form action="/dismiss" style="display:inline">
+            <form action="/dismissHost" style="display:inline">
                 <input type="submit" value="Next">
             </form>   
             <form action="/reset" style="display:inline">

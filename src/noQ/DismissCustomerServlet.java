@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 import com.googlecode.objectify.ObjectifyService;
 
 @SuppressWarnings("serial")
-public class ResetServlet extends HttpServlet {
+public class DismissCustomerServlet extends HttpServlet {
 	static {
 
         ObjectifyService.register(Customer.class);
@@ -21,9 +21,10 @@ public class ResetServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		Customer.served = 0;
-		Customer.totalCustomers = 0;
-		Customer.customerWaiting = 0;
-		resp.sendRedirect("/host.jsp");
+		if(Customer.customerWaiting>0){
+			Customer.served += 1;
+			Customer.customerWaiting-=1;
+		}
+			resp.sendRedirect("/thankYou.jsp");
 	}
 }

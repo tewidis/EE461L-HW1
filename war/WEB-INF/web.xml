@@ -11,15 +11,24 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>landing</servlet-name>
 		<url-pattern>/landing</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>dismiss</servlet-name>
-		<servlet-class>noQ.DismissServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dismiss</servlet-name>
-		<url-pattern>/dismiss</url-pattern>
-	</servlet-mapping>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>dismissHost</servlet-name>
+        <servlet-class>noQ.DismissHostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dismissHost</servlet-name>
+        <url-pattern>/dismissHost</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dismissCustomer</servlet-name>
+        <servlet-class>noQ.DismissCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dismissCustomer</servlet-name>
+        <url-pattern>/dismissCustomer</url-pattern>
+    </servlet-mapping>
 	<servlet>
 		<servlet-name>param</servlet-name>
 		<servlet-class>noQ.ParameterServlet</servlet-class>
