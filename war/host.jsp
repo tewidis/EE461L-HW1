@@ -69,7 +69,10 @@
     <br>
     <div class="row">
         <div class="col-xs-12 text-center">
-            <input type="button" value="Dismiss" onClick="">
+            <input type="button" value="Refresh" onClick="window.location.reload()">
+            <form action="/dismiss" style="display:inline">
+                <input type="submit" value="Dismiss">
+            </form>   
             <form action="/reset" style="display:inline">
                <input type="submit" value="Reset">
             </form>
