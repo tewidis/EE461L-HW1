@@ -37,6 +37,7 @@
             pageContext.setAttribute("waitTime", (position*Parameter.avgWaitTime));
             pageContext.setAttribute("avgWaitTime", Parameter.avgWaitTime);
             pageContext.setAttribute("customerServed", Customer.served);
+            pageContext.setAttribute("customerWaiting",Customer.customerWaiting);
             %>
     <div class="row">
         <div class="col-xs-12 text-center">
@@ -48,6 +49,15 @@
             <h1>Host</h1>
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="text">
+                <p>Customers Waiting: -${fn:escapeXml(customerWaiting)}-</p>
+            </div>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="col-xs-12 text-center">
             <div class="text">

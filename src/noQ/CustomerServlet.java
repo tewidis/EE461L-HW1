@@ -27,6 +27,8 @@ public class CustomerServlet extends HttpServlet {
         ofy().save().entity(cc.get(0)).now();
         */
 		Customer.totalCustomers += 1;
+		Customer.customerWaiting += 1;
+		//resp.setIntHeader("Refresh", 5);
         resp.sendRedirect("/noQLanding.jsp?cID=" + Customer.totalCustomers.toString());
 	}
 }

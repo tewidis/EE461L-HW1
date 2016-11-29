@@ -53,6 +53,10 @@
             }
             pageContext.setAttribute("cid", id);
             Integer position = (Integer.parseInt(id) - Customer.served);
+            if(position<0){
+                position=0; 
+            }
+            
             pageContext.setAttribute("position", position);
             pageContext.setAttribute("waitTime", (position*Parameter.avgWaitTime));
             %>
