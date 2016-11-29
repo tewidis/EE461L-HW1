@@ -44,11 +44,12 @@ public class Parameter {
 		return companyLogo;
 	}
 	
-	 public long setTime(long wait){
+	*/
+	 public static long setTime(int wait){
 		avgWaitTime = wait;
 		 return avgWaitTime;
 	}
-	
+	/*
 	public long setLine(long length){
 		maxLineLength = length;
 		return maxLineLength;

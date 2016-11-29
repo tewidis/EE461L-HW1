@@ -23,5 +23,6 @@ public class ResetServlet extends HttpServlet {
 			throws IOException {
 		Customer.served = 0;
 		Customer.totalCustomers = 0;
+		resp.sendRedirect("/host.jsp?reset");
 	}
 }
