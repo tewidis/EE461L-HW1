@@ -52,13 +52,6 @@
                 id = "0";
             }
             pageContext.setAttribute("cid", id);
-            Integer position = (Integer.parseInt(id) - Customer.served);
-            if(position<0){
-                position=0; 
-            }
-            
-            pageContext.setAttribute("position", position);
-            pageContext.setAttribute("waitTime", (position*Parameter.avgWaitTime));
             %>
 	            <p>-${fn:escapeXml(cid)}-</p>
 	        </div>
@@ -97,14 +90,20 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
         var myVar = setInterval(function(){ myTimer() }, 250);
-        
+        var notification=0;
+        function Redirect() {
+               window.location="/thankYou.jsp";
+        }
         function myTimer() {
-            
             var cid=<%= pageContext.getAttribute("cid") %>
              $.post("position", { orderId : cid},
                 function(position) {
                 document.getElementById("pos").firstChild.nodeValue = position;
-                //alert(data);
+                if(position<=0 && notification==0){
+                    alert("It's Your Turn!");
+                    notification=1;
+                    Redirect();
+                }
              });
             var avg=<%= pageContext.getAttribute("waitTime") %>
             $.post("param", { orderId : cid},

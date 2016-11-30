@@ -35,7 +35,7 @@ public class ParameterServlet extends HttpServlet {
            //Integer cid=(Customer.totalCustomers);
     	   Integer cid=Integer.parseInt(req.getParameter("orderId"));
            Integer avgWT=(cid-Customer.served)*Parameter.avgWaitTime;
-           
+           if(avgWT<0){avgWT=0;}
            String data = ""+avgWT;
            writer.write(data);
            writer.close();
