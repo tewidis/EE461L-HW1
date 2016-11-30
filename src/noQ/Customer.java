@@ -1,4 +1,6 @@
 package noQ;
+import java.util.ArrayList;
+
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.annotation.Entity;
@@ -9,7 +11,7 @@ public class Customer{
 	public static Integer totalCustomers = 0;
 	public static Integer served = 0;
 	public static Integer customerWaiting= 0;
-	
+	public static ArrayList<Integer> canceledCustomer=new ArrayList<Integer>();
 	@Id
 	long id;
 	public Integer cID;

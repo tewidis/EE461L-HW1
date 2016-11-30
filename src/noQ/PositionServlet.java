@@ -5,10 +5,12 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 
 
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -46,13 +48,24 @@ public class PositionServlet extends HttpServlet {
     {
         PrintWriter writer =  response.getWriter();
         try{
+        	
            //Integer cid=(Customer.totalCustomers);
     	   Integer cid=Integer.parseInt(request.getParameter("orderId"));
            Integer pos=cid-Customer.served;
-           if(pos<0){pos=0;}
+           for(Integer c: Customer.canceledCustomer){
+    		  // System.out.println(c+ ">"+cid);
+
+        	   if(c>cid){
+        		//   System.out.println(c+ ">"+cid);
+        		   pos++;
+        	   }
+           }
+           
+           
            String data = ""+pos;
            writer.write(data);
            writer.close();
+         
            }
        catch(Exception ex)
       {

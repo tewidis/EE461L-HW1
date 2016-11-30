@@ -24,6 +24,7 @@ public class ResetServlet extends HttpServlet {
 		Customer.served = 0;
 		Customer.totalCustomers = 0;
 		Customer.customerWaiting = 0;
+		Customer.canceledCustomer.clear();
 		resp.sendRedirect("/host.jsp");
 	}
 }

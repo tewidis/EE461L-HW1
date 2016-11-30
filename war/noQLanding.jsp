@@ -81,8 +81,8 @@
 	<div class="row">
         <div class="col-xs-12 text-center">
         	<input type="button" value="Refresh" onClick="window.location.reload()">
-        	<form action="/dismissCustomer" style="display:inline" >
-        	   <input type="submit" value="Cancel">
+        	<form style="display:inline" >
+        	   <input type="submit" value="Cancel" onClick="stopTimer()">
         	</form>
         </div>
 	</div>
@@ -113,11 +113,19 @@
              });
 
         }
+        function stopTimer() {
+            var cid=<%= pageContext.getAttribute("cid") %>
+            $.get("dismissCustomer",{ orderId : cid},
+                function(position){
+                  window.location="/thankYou.jsp";
+                
+                }); 
+
+        }
     </script>
 	
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
