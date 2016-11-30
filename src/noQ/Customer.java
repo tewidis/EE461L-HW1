@@ -12,6 +12,7 @@ public class Customer{
 	public static Integer served = 0;
 	public static Integer customerWaiting= 0;
 	public static ArrayList<Integer> canceledCustomer=new ArrayList<Integer>();
+	public static Integer reset = 0;
 	@Id
 	long id;
 	public Integer cID;

@@ -104,6 +104,7 @@
                     notification=1;
                     Redirect();
                 }
+
              });
             var avg=<%= pageContext.getAttribute("waitTime") %>
             $.post("param", { orderId : cid},
@@ -112,13 +113,13 @@
                 //alert(avgTime);
              });
 
+
         }
         function stopTimer() {
             var cid=<%= pageContext.getAttribute("cid") %>
             $.get("dismissCustomer",{ orderId : cid},
                 function(position){
                   window.location="/thankYou.jsp";
-                
                 }); 
 
         }

@@ -48,7 +48,6 @@ public class PositionServlet extends HttpServlet {
     {
         PrintWriter writer =  response.getWriter();
         try{
-        	
            //Integer cid=(Customer.totalCustomers);
     	   Integer cid=Integer.parseInt(request.getParameter("orderId"));
            Integer pos=cid-Customer.served;
@@ -60,7 +59,13 @@ public class PositionServlet extends HttpServlet {
         		   pos++;
         	   }
            }
-           
+           if(Customer.reset==1){
+        	  pos=0;
+        	  Customer.customerWaiting--;
+        	  if(Customer.customerWaiting==0){
+        		  Customer.reset=0;
+        	  }
+           }
            
            String data = ""+pos;
            writer.write(data);

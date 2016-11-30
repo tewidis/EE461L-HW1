@@ -3,6 +3,7 @@ package noQ;
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
 
+
 import java.io.IOException;
 import java.util.List;
 
@@ -23,7 +24,8 @@ public class ResetServlet extends HttpServlet {
 			throws IOException {
 		Customer.served = 0;
 		Customer.totalCustomers = 0;
-		Customer.customerWaiting = 0;
+		//Customer.customerWaiting=0;
+		Customer.reset=1;
 		Customer.canceledCustomer.clear();
 		resp.sendRedirect("/host.jsp");
 	}
