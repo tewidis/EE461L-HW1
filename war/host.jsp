@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <div class="text">
-                <p>Customers Waiting: -${fn:escapeXml(customerWaiting)}-</p>
+                <p style="display:inline">Customers Waiting: -<p style="display:inline" id="cWaiting"> </p><p style="display:inline">-</p>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <div class="text">
-                <p>Customers served: -${fn:escapeXml(customerServed)}-</p>
+                <p style="display:inline">Customers served: -<p style="display:inline" id="cServed"> </p><p style="display:inline">-</p>
             </div>
         </div>
     </div>
@@ -89,6 +89,23 @@
         </div>
     </div>
     <div class="row">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        var myVar = setInterval(function(){ myTimer() }, 250);
+        var notification=0;
+       
+        function myTimer() {
+            $.get("cWaitServlet",
+                function(cWaiting) {
+                document.getElementById("cWaiting").firstChild.nodeValue = cWaiting;  
+             });
+             $.get("cServedServlet",
+                function(cServed) {
+                document.getElementById("cServed").firstChild.nodeValue = cServed;  
+             });              
+
+        }
+    </script>
     <!--jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
